@@ -22,7 +22,7 @@ public class AddressBookMain {
 		switch(ans) {
 		case 'y' :	if(contact.getFirstName() == firstName & contact.getLastName() == lastName)
 					{
-						System.out.print("Current  Contact Name : "+contact.getFirstName()+" "+contact.getLastName());
+						System.out.print(" Current  Contact Name : "+contact.getFirstName()+" "+contact.getLastName());
 			
 						System.out.print("\n Edit first name : ");
 						 firstName = scanner.next();
@@ -57,7 +57,7 @@ public class AddressBookMain {
 						contact.setPhoneNumber(phoneNumber);
 						contact.setEmail(email);
 							
-						System.out.println("\nSuccessfully Updated !");
+						System.out.println("\n Successfully Updated !");
 					}
 					break;
 		case 'n' : 	
@@ -69,6 +69,37 @@ public class AddressBookMain {
 		}
 	}
 	
+	public void deleteContact(String firstName, String lastName) {
+		System.out.println("\n ----- Delete Contact ------");
+		System.out.print(" To Delete Contact press y else n : ");
+		char ans = scanner.next().charAt(0);
+
+		switch (ans) {
+		case 'y':
+			if (contact.getFirstName() == firstName & contact.getLastName() == lastName) {
+				System.out.print(" Current Contact Name : " + contact.getFirstName() + " " + contact.getLastName());
+
+				contact.setFirstName(null);
+				contact.setLastName(null);
+				contact.setAddress(null);
+				contact.setCity(null);
+				contact.setState(null);
+				contact.setZip(0);
+				contact.setPhoneNumber(0);
+				contact.setEmail(null);
+
+				System.out.println("\n Successfully Deleted !");
+			}
+			break;
+		case 'n':
+			System.out.println(" Thanks for your input ");
+			break;
+		default:
+			System.out.println(" Wrong Input ");
+			break;
+		}
+
+	}
 	public void displayContact() {
 		System.out.println("\n ----- Display Contact ------");
 		System.out.println(" First Name : "+contact.getFirstName());
@@ -89,6 +120,8 @@ public class AddressBookMain {
 		addressBookMain.addContact("Omi","Maurya","CCT","Lucknow","UttarPradersh",271201,87234323,"Omi31@gmail.com");
 		addressBookMain.displayContact();
 		addressBookMain.editContact("Omi","Maurya");
+		addressBookMain.displayContact();
+		addressBookMain.deleteContact("Omi","Maurya");
 		addressBookMain.displayContact();
 	}
 }
