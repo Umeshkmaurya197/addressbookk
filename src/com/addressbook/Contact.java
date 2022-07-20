@@ -1,6 +1,6 @@
 package com.addressbook;
 
-public class AddressBook {
+public class Contact {
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -9,7 +9,11 @@ public class AddressBook {
 	private int zip;
 	private long phoneNumber;
 	private String email;
-	public AddressBook(String firstName, String lastName, String address, String city, String state, int zip,
+	
+	public Contact() {
+		super();
+	}
+	public Contact(String firstName, String lastName, String address, String city, String state, int zip,
 			long phoneNumber, String email) {
 		super();
 		this.firstName = firstName;
